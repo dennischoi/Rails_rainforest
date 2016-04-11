@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+# this for the password portion -- but resources still apply
+  # get 'users/new'
+  #
+  # get 'users/create'
+
+  resources :users, only: [:new, :create]
+
   # get 'products/index'
   #
   # get 'products/show'
