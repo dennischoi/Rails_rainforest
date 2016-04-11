@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  #  This is for log in function which can be resourced like the password function
+  # get 'sessions/new'
+  #
+  # get 'sessions/create'
+  #
+  # get 'sessions/destroy'
+
+resources :sessions, only: [:new, :create, :destroy]
+
+
 # this for the password portion -- but resources still apply
   # get 'users/new'
   #
