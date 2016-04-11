@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy]
+  end
+
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+end
+  # get 'reviews/show'
+  #
+  # get 'reviews/create'
+  #
+  # get 'reviews/destroy'
+
   #  This is for log in function which can be resourced like the password function
   # get 'sessions/new'
   #
@@ -6,15 +19,12 @@ Rails.application.routes.draw do
   #
   # get 'sessions/destroy'
 
-resources :sessions, only: [:new, :create, :destroy]
-
 
 # this for the password portion -- but resources still apply
   # get 'users/new'
   #
   # get 'users/create'
 
-  resources :users, only: [:new, :create]
 
   # get 'products/index'
   #
@@ -24,7 +34,6 @@ resources :sessions, only: [:new, :create, :destroy]
   #
   # get 'products/edit'
 
-  resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -80,4 +89,3 @@ resources :sessions, only: [:new, :create, :destroy]
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
